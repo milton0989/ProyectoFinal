@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from obras.views import ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('obra/list', ObraList.as_view(), name="obra-list"),
+    path('obra/<pk>/detalle', ObraDetalle.as_view(), name="obra-detalle"),
+    path('obra/<pk>/actualizar', ObraActualizar.as_view(), name="obra-actualizar"),
+    path('obra/<pk>/eliminar', ObraEliminar.as_view(), name="obra-eliminar"),
+    path('obra/crear', ObraCrear.as_view(), name="obra-crear"),
 ]
