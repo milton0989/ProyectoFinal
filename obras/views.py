@@ -2,8 +2,11 @@ from django.shortcuts import render
 from obras.models import Obra
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
+def index(request):
+    return render(request, "obras/index.html")
 
 class ObraList(ListView):
     model = Obra
@@ -28,3 +31,6 @@ class ObraCrear(CreateView):
     success_url = reverse_lazy("obra-list")
     fields = '__all__'
 
+class Login(LoginView):
+    next_page = reverse_lazy("obra-list")
+    
