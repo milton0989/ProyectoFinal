@@ -3,6 +3,8 @@ from obras.models import Obra
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import UserCreationForm
+
 
 # Create your views here.
 def index(request):
@@ -33,4 +35,9 @@ class ObraCrear(CreateView):
 
 class Login(LoginView):
     next_page = reverse_lazy("obra-list")
+    
+class SignUp(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy("obra-list")
     
