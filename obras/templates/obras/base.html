@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>Headers · Bootstrap v5.3</title>
+    <title>Seguimiento de Obra</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
 
@@ -106,12 +106,14 @@
 <header class="p-3 text-bg-dark">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a class="navbar-brand" href="/">SEGUIMIENTO DE OBRA</a>
+        <a class="navbar-brand" href="/">SEGUIMIENTO DE OBRA</a> 
+        <div class="vr"></div> 
                   
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{% url 'obra-list' %}" class="nav-link px-2 text-white">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
+          <li><a href="{% url 'obra-list' %}" class="nav-link px-2 text-white">Obras</a></li>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'obra-list' %}" class="nav-link px-2 text-white">Mis Obras</a></li>
+            <li><a href="{% url 'obra-user' %}" class="nav-link px-2 text-white">Mis Obras</a></li>
             <li><a href="{% url 'obra-crear' %}" class="nav-link px-2 text-white">Agregar Obra</a></li>
           {% else %}
             <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
@@ -125,6 +127,7 @@
           </form>
 
           <div class="text-end"></div>
+            <a href="#" class="nav-link px-2 text-white">{{ user.username }}</a> 
             <a href="{% url 'logout' %}" class="btn btn-warning">SALIR</a>
           {% else %}
           <div class="text-end">

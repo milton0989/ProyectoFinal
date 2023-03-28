@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from obras.views import index, ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear, Login, SignUp, Logout
+from obras.views import (index, ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear,
+ Login, SignUp, Logout, ObraUserList)
 
 urlpatterns = [
     path('', index, name="index"),
@@ -29,4 +30,5 @@ urlpatterns = [
     path('login/', Login.as_view(), name="login"),
     path('signup/', SignUp.as_view(), name="signup"),
     path('logout/', Logout.as_view(), name="logout"),
+    path('obra/list/user', ObraUserList.as_view(), name="obra-user"),
 ]

@@ -8,7 +8,7 @@
         {% for obra in obras %}
         <li> {{obra.id}} - {{obra.titulo}} 
             <a href="{% url 'obra-detalle' obra.id %}">Detalle</a>
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and user.id == obra.autor.id %}
                 <a href="{% url 'obra-actualizar' obra.id %}">Actualizar</a>
                 <a href="{% url 'obra-eliminar' obra.id %}">Borrar</a>
             {% endif %}
