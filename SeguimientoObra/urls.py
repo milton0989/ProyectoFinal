@@ -18,6 +18,8 @@ from django.urls import path
 
 from obras.views import (index, ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear,
  Login, SignUp, Logout, ObraUserList)
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name="index"),
@@ -32,3 +34,5 @@ urlpatterns = [
     path('logout/', Logout.as_view(), name="logout"),
     path('obra/list/user', ObraUserList.as_view(), name="obra-user"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

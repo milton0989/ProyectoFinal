@@ -6,10 +6,10 @@
     
     <p style="margin-top: 10px;"></p>
 
-    <form style="margin-left: 25px;" method="post">
+    <form style="margin-left: 25px;" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Actualizar">
+        <input type="submit" class="btn btn-primary" value="Actualizar">
     </form>
 
 {% endblock %}
