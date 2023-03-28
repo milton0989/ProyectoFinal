@@ -1,9 +1,18 @@
-<ul>
-    
-    <li> {{obra.id}} - {{obra.titulo}} 
-        <a href="{% url 'obra-actualizar' obra.id %}">Actualizar</a>
-        <a href="{% url 'obra-eliminar' obra.id %}">Borrar</a>
-    </li>
-    
-    
-</ul>
+{% extends "obras/base.html" %}
+{% load static %}
+
+
+{% block main %}
+    <p style="margin-top: 10px;"></p>
+        
+    <ul>
+        
+        <li> {{obra.id}} - {{obra.titulo}} 
+            <a href="{% url 'obra-actualizar' obra.id %}">Actualizar</a>
+            <a href="{% url 'obra-eliminar' obra.id %}">Borrar</a>
+        </li>
+        
+        
+    </ul>
+
+{% endblock %}

@@ -1,5 +1,14 @@
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Ingresar">
-</form>
+{% extends "obras/base.html" %}
+{% load static %}
+
+
+{% block main %}
+    <p style="margin-top: 10px;"></p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="Ingresar">
+    </form>
+
+{% endblock %}

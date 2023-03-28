@@ -1,5 +1,15 @@
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Actualizar">
-</form>
+{% extends "obras/base.html" %}
+{% load static %}
+
+
+{% block main %}
+    
+    <p style="margin-top: 10px;"></p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Actualizar">
+    </form>
+
+{% endblock %}
