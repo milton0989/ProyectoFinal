@@ -11,11 +11,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def index(request):
     return render(request, "obras/index.html")
 
-class ObraList(LoginRequiredMixin, ListView):
+class ObraList(ListView):
     model = Obra
     context_object_name = "obras"
 
-class ObraDetalle(LoginRequiredMixin, DetailView):
+class ObraUserList(LoginRequiredMixin, ObraList):
+    def get_queryset(self):
+        return Obra.objects.filter(autor=self.request.user.id).all()
+  
+
+class ObraDetalle(DetailView):
     model = Obra
     context_object_name = "obra"
 
