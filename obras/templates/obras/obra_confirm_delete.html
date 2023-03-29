@@ -3,15 +3,14 @@
 
 
 {% block main %}
-   
+  <div class="alert alert-danger" role="alert">
+    Esta seguro de eliminar la obra {{ obra.titulo }}
 
-    <p style="margin-top: 10px;"> Esta seguro de eliminar la obra {{ obra.titulo }}</p>
-    <form method="post">
+    <form method="post" style="margin-top: 10px">
         {% csrf_token %}
         {{form}}
         <input class="btn btn-danger" type="submit" value="Borrar">
-        <a class="btn btn-primary" href="{% url 'obra-list' %}">Cancelar</a> <!-- AÑADIR CSS para mejorar vista--> 
-        
+        <a class="btn btn-primary" href="{% url 'obra-list' %}">Cancelar</a> 
     </form>
-
+  </div>
 {% endblock %}

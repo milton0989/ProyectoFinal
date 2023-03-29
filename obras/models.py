@@ -22,6 +22,10 @@ class Perfil(models.Model):
     user = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name="perfil")
     avatar = models.ImageField(upload_to="avatares", null=True, blank=True)
 
+    @property
+    def image_url(self):
+        return self.avatar.url if self.avatar else ''
+
 class Mensaje(models.Model):
     mensaje = models.TextField(max_length=1000)
     email = models.EmailField()

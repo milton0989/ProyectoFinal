@@ -9,7 +9,7 @@
         <h1>
             No hay mensajes
         </h1>
-        {% endif %}
+        {% else %}
         <h1>
             Mis mensajes
         </h1>
@@ -34,6 +34,7 @@
               {% endfor %}
             </tbody>
           </table>
+          {% endif %}
                
     </ul>
 {% endblock %}
