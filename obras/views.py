@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from obras.models import Obra
+from obras.models import Obra, Perfil
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
@@ -59,3 +59,21 @@ class SignUp(CreateView):
 
 class Logout(LogoutView):
     template_name = 'registration/logout.html'
+
+class PerfilCrear(CreateView):
+    model = Perfil
+    success_url = reverse_lazy("obra-list")
+    fields = ['avatar']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class PerfilActualizar(UserPassesTestMixin, UpdateView):
+    model = Perfil
+    success_url = reverse_lazy("obra-list")
+    fields = ['avatar']
+
+    def test_func(self):
+        return Perfil.objects.filter(user=self.request.user).exists()
+        

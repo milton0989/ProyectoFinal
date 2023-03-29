@@ -127,7 +127,12 @@
           </form>
 
           <div class="text-end"></div>
-            <a href="#" class="nav-link px-2 text-white">{{ user.username }}</a> 
+            <a href="#" class="nav-link px-2 text-white">{{ user.username }}</a>
+            {% if user.perfil %}
+              <a href="{% url 'perfil-actualizar' user.perfil.id %}" class="nav-link px-2 text-white">Actualizar Perfil</a>
+            {% else %}
+            <a href="{% url 'perfil-crear' %}" class="nav-link px-2 text-white">Crear Perfil</a>
+            {% endif %}
             <a href="{% url 'logout' %}" class="btn btn-warning">SALIR</a>
           {% else %}
           <div class="text-end">

@@ -18,4 +18,6 @@ class Obra(models.Model):
     def __str__(self):
         return f"{self.id} - {self.titulo}"
 
-
+class Perfil(models.Model):
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name="perfil")
+    avatar = models.ImageField(upload_to="avatares", null=True, blank=True)
