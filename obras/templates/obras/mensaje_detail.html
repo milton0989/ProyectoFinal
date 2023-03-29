@@ -1,0 +1,13 @@
+{% extends "obras/base.html" %}
+{% load static %}
+
+
+{% block main %}
+    <p style="margin-top: 10px;"></p>
+    <ul>
+            <li> {{mensaje.id}} - {{mensaje.creado_el}} - {{mensaje.email}} 
+            <a href="{% url 'mensaje-eliminar' mensaje.id %}">Borrar</a>
+            </li>
+            <p>{{mensaje.mensaje}}</p>
+    </ul>
+{% endblock %}

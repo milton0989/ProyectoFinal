@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 from obras.views import (index, ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear,
- Login, SignUp, Logout, ObraUserList, PerfilCrear, PerfilActualizar)
+ Login, SignUp, Logout, ObraUserList, PerfilCrear, PerfilActualizar,
+ MensajeCrear, MensajeList, MensajeEliminar, MensajeDetalle)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -35,6 +36,10 @@ urlpatterns = [
     path('obra/list/user', ObraUserList.as_view(), name="obra-user"),
     path('perfil/crear', PerfilCrear.as_view(), name="perfil-crear"),
     path('perfil/<pk>/actualizar', PerfilActualizar.as_view(), name="perfil-actualizar"),
+    path('mensaje/crear', MensajeCrear.as_view(), name="mensaje-crear"),
+    path('mensaje/list', MensajeList.as_view(), name="mensaje-list"),
+    path('mensaje/<pk>/detalle', MensajeDetalle.as_view(), name="mensaje-detalle"),
+    path('mensaje/<pk>/eliminar', MensajeEliminar.as_view(), name="mensaje-eliminar"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

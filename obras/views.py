@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from obras.models import Obra, Perfil
+from obras.models import Obra, Perfil, Mensaje
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
@@ -76,4 +76,28 @@ class PerfilActualizar(UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return Perfil.objects.filter(user=self.request.user).exists()
-        
+
+class MensajeCrear(CreateView):
+    model = Mensaje
+    success_url = reverse_lazy("mensaje-crear")
+    fields = '__all__'
+
+class MensajeEliminar(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Mensaje
+    context_object_name = "mensaje"
+    success_url = reverse_lazy("mensaje-list")
+
+    def test_func(self):
+        return Mensaje.objects.filter(destinatario=self.request.user).exists()
+
+class MensajeList(LoginRequiredMixin, ListView):
+    model = Mensaje
+    context_object_name = "mensaje"
+
+    def get_queryset(self):
+        import pdb; pdb.set_trace
+        return Mensaje.objects.filter(destinatario=self.request.user).all()
+
+class MensajeDetalle(DetailView):
+    model = Mensaje
+    context_object_name = "mensaje"

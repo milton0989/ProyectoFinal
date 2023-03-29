@@ -5,6 +5,12 @@
 {% block main %}
     <p style="margin-top: 10px;"></p>
     <ul>
+        {% if not obras %}
+        <h1>
+            No hay obras
+        </h1>
+        {% endif %}
+
         {% for obra in obras %}
         <li> {{obra.id}} - {{obra.titulo}} 
             <a href="{% url 'obra-detalle' obra.id %}">Detalle</a>
