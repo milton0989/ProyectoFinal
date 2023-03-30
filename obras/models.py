@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Obra(models.Model):
-    titulo = models.CharField(max_length=50)
-    subtitulo = models.CharField(max_length=50)
-    descripcion = models.TextField()
-    imagen = models.ImageField(upload_to="obras", null=True, blank=True)
-    autor = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="autor" )
+    titulo = models.CharField(max_length=50, verbose_name='Obra')
+    subtitulo = models.CharField(max_length=50, verbose_name='Ubicación')
+    descripcion = models.TextField(verbose_name='Descripción')
+    imagen = models.ImageField(upload_to="obras", null=True, blank=True, verbose_name='Imagen')
+    autor = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="autor", verbose_name='Autor' )
 
     @property
     def image_url(self):
