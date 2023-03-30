@@ -4,10 +4,12 @@
 
 {% block main %}
     <p style="margin-top: 10px;"></p>
-    <ul>
-            <li> {{mensaje.id}} - {{mensaje.creado_el}} - {{mensaje.email}} 
-            <a href="{% url 'mensaje-eliminar' mensaje.id %}">Borrar</a>
-            </li>
-            <p>{{mensaje.mensaje}}</p>
-    </ul>
+    <div style="margin-left: 10px;">
+            <h5>Remitente: {{mensaje.email}} </h5> 
+            <h6>Fecha: {{mensaje.creado_el}}</h6>
+            <p>mensaje: {{mensaje.mensaje}}</p>
+            <a class="btn btn-danger" href="{% url 'mensaje-eliminar' mensaje.id %}">Borrar</a>
+            
+            
+    </div>
 {% endblock %}

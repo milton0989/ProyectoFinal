@@ -9,17 +9,31 @@
         <h1>
             No hay obras
         </h1>
-        {% endif %}
+        {% endif %}   
+          
+        <div class="album py-5 ">
+          <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            {% for obra in obras %}
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img height="256px" src="{{obra.image_url}}"></img>
+                   <div class="card-body">
+                    <p class="card-text">
+                        <h5>{{obra.titulo}}</h5>
+                        <h6>{{obra.subtitulo}}</h6>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'obra-detalle' obra.id %}">Detalle</a>
+                      </div>
+                      <small class="text-muted">FECHA</small>
+                    </div>
+                  </div>           
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
 
-        {% for obra in obras %}
-        <li> {{obra.id}} - {{obra.titulo}} 
-            <a href="{% url 'obra-detalle' obra.id %}">Detalle</a>
-            {% if user.is_authenticated and user.id == obra.autor.id %}
-                <a href="{% url 'obra-actualizar' obra.id %}">Actualizar</a>
-                <a href="{% url 'obra-eliminar' obra.id %}">Borrar</a>
-            {% endif %}
-        </li>
-        {% endfor %}
-        
-    </ul>
 {% endblock %}
