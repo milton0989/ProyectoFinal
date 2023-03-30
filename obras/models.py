@@ -9,6 +9,7 @@ class Obra(models.Model):
     descripcion = models.TextField(verbose_name='Descripción')
     imagen = models.ImageField(upload_to="obras", null=True, blank=True, verbose_name='Imagen')
     autor = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="autor", verbose_name='Autor' )
+    fecha = models.DateTimeField()
 
     @property
     def image_url(self):
