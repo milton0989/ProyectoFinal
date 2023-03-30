@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from obras.views import (index, ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear,
+from obras.views import (index, home, ObraList, ObraDetalle, ObraActualizar, ObraEliminar, ObraCrear,
  Login, SignUp, Logout, ObraUserList, PerfilCrear, PerfilActualizar,
  MensajeCrear, MensajeList, MensajeEliminar, MensajeDetalle)
 from django.conf import settings
@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name="index"),
+    path('home/', home, name="home"),
     path('admin/', admin.site.urls),
     path('obra/list', ObraList.as_view(), name="obra-list"),
     path('obra/<pk>/detalle', ObraDetalle.as_view(), name="obra-detalle"),

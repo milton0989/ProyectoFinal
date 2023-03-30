@@ -11,6 +11,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def index(request):
     return render(request, "obras/index.html")
 
+def home(request):
+    return render(request, "obras/home.html")
+
 class ObraList(ListView):
     model = Obra
     context_object_name = "obras"
