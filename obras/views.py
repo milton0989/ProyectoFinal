@@ -14,6 +14,9 @@ def index(request):
 def home(request):
     return render(request, "obras/home.html")
 
+def about(request):
+    return render(request, "obras/about.html")
+
 class ObraList(ListView):
     model = Obra
     context_object_name = "obras"

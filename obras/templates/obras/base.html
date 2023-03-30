@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>Seguimiento de Obra</title>
+    <title>siteOBRAS</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
 
@@ -106,12 +106,12 @@
 <header class="p-3 text-bg-dark">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a class="navbar-brand" href="/">SEGUIMIENTO DE OBRA</a> 
+        <a class="navbar-brand" href="/">siteOBRAS</a> 
         <div class="vr"></div> 
                   
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Inicio</a></li>          
-          <li><a href="#" class="nav-link px-2 text-white">Acerca de</a></li>
+          <li><a href="{% url 'about' %}" class="nav-link px-2 text-white">Acerca de</a></li>
           <li><a href="{% url 'mensaje-crear' %}" class="nav-link px-2 text-white">Contacto</a></li>
           <li><a href="{% url 'obra-list' %}" class="nav-link px-2 text-white">Obras</a></li>
           
@@ -123,7 +123,7 @@
           {% if user.is_authenticated %}
          
           <div class="text-end"></div>
-            <a href="#" class="nav-link px-2 text-white">{{ user.username }}</a>
+            
             <div class="dropdown text-end">
               <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="{{user.perfil.image_url}}" alt="" width="32" height="32" class="rounded-circle me-2">
